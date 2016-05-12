@@ -2,10 +2,6 @@
     "name": "integrationmonitoring/moneta-php-sdk",
     "version": "master",
     "license": "MIT",
-    "require": {
-        "php": ">=5.3.0",
-        "moneta/webservice": "dev-master"
-    },
     "autoload": {
         "psr-0" : {
             "Moneta" : "src"

@@ -139,8 +139,8 @@ class MonetaSdkUtils
     public static function handleEvent($eventName, $data, $externalPath = null)
     {
         $result = false;
-        if (!$externalPath && $externalPath != '') {
-            $eventFileName = __DIR__ . $externalPath . $eventName . '.php';
+        if ($externalPath && $externalPath != '') {
+            $eventFileName = $externalPath . $eventName . '.php';
         }
         else {
             $eventFileName = __DIR__ . self::EVENTS_FILES_PATH . $eventName . '.php';

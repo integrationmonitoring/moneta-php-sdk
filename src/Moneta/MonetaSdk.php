@@ -331,7 +331,7 @@ class MonetaSdk extends MonetaSdkMethods
                         $this->processForwardPaymentForm();
                         break;
                     case 'MonetaSendCallBack':
-                        $this->processMonetaSendCallBack();
+                        $processResultData = $this->processMonetaSendCallBack();
                         break;
                     case 'ForwardChoosePaymentSystemForm':
                         $this->processForwardChoosePaymentSystemForm();

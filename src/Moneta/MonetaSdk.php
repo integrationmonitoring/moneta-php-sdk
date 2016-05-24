@@ -566,6 +566,8 @@ class MonetaSdk extends MonetaSdkMethods
             $processResultData['answer'] = 'FAIL';
             $this->render = 'FAIL';
         }
+        
+        return $processResultData;
     }
 
     /**

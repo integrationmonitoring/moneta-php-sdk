@@ -1001,7 +1001,7 @@ class MonetaSdkMethods
         $this->error = true;
 
         if ($this->getSettingValue('monetasdk_debug_mode')) {
-            MonetaSdkUtils::addToLog("parseJsonException:\n" . $data);
+            MonetaSdkUtils::addToLog("parseJsonException:\n" . print_r($data, true));
         }
 
         if (isset($data['detail']['faultDetail'])) {

@@ -111,22 +111,23 @@ class MonetaSdkUtils
      */
 	public static function requireView($viewName, $data, $externalPath = null)
 	{
-        $result = false;
-        if (!$externalPath && $externalPath != '') {
-            $viewFileName = __DIR__ . $externalPath . $viewName . '.php';
-        }
-        else {
-            $viewFileName = __DIR__ . self::VIEW_FILES_PATH . $viewName . '.php';
-        }
-
+	        $result = false;
+	
+	        if ($externalPath && $externalPath != '') {
+	            $viewFileName = $externalPath . $viewName . '.php';
+	        }
+	        else {
+	            $viewFileName = __DIR__ . self::VIEW_FILES_PATH . $viewName . '.php';
+	        }
+	
 		if (file_exists($viewFileName)) {
-            ob_start();
-			require_once($viewFileName);
-            $result = ob_get_contents();
-            ob_end_clean();
-		}
-
-        return $result;
+	            ob_start();
+				require_once($viewFileName);
+	            $result = ob_get_contents();
+	            ob_end_clean();
+			}
+	
+	        return $result;
 	}
 
     /**
@@ -138,8 +139,8 @@ class MonetaSdkUtils
     public static function handleEvent($eventName, $data, $externalPath = null)
     {
         $result = false;
-        if (!$externalPath && $externalPath != '') {
-            $eventFileName = __DIR__ . $externalPath . $eventName . '.php';
+        if ($externalPath && $externalPath != '') {
+            $eventFileName = $externalPath . $eventName . '.php';
         }
         else {
             $eventFileName = __DIR__ . self::EVENTS_FILES_PATH . $eventName . '.php';

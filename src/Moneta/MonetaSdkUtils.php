@@ -112,11 +112,11 @@ class MonetaSdkUtils
 	public static function requireView($viewName, $data, $externalPath = null)
 	{
         $result = false;
-        if (!$externalPath && $externalPath != '') {
-            $viewFileName = __DIR__ . $externalPath . $viewName . '.php';
+        if (empty($externalPath)) {
+            $viewFileName = __DIR__ . self::VIEW_FILES_PATH . $viewName . '.php';
         }
         else {
-            $viewFileName = __DIR__ . self::VIEW_FILES_PATH . $viewName . '.php';
+            $viewFileName = __DIR__ . $externalPath . $viewName . '.php';
         }
 		if (file_exists($viewFileName)) {
             ob_start();
@@ -137,11 +137,11 @@ class MonetaSdkUtils
     public static function handleEvent($eventName, $data, $externalPath = null)
     {
         $result = false;
-        if (!$externalPath && $externalPath != '') {
-            $eventFileName = __DIR__ . $externalPath . $eventName . '.php';
+        if (empty($externalPath)) {
+            $eventFileName = __DIR__ . self::EVENTS_FILES_PATH . $eventName . '.php';
         }
         else {
-            $eventFileName = __DIR__ . self::EVENTS_FILES_PATH . $eventName . '.php';
+            $eventFileName = __DIR__ . $externalPath . $eventName . '.php';
         }
         if (file_exists($eventFileName)) {
             require($eventFileName);
